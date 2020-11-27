@@ -7,7 +7,7 @@ const tabsParent = document.querySelector(".tabheader__items"),
       tabsContent = document.querySelectorAll(".tabcontent"),
       modal = document.querySelector('.modal'),
       modalClose = modal.querySelector('.modal__close'),
-      btns = document.querySelectorAll('.btn');
+      btns = document.querySelectorAll('[data-modal]');
 
 
 
@@ -46,23 +46,50 @@ tabsParent.addEventListener("click", (e) => {
     }
 });
 
-const timerId = setTimeout(() => {
-    modal.classList.add('show');
-}, 8000);
+//Enable modal
+function openModal() {
+    modal.classList.toggle('show');
+    document.body.style.overflow = 'hidden';
+    clearInterval(timerId);
+}
+
+const timerId = setTimeout(openModal, 8000);
 
 btns.forEach(btn => {
     btn.addEventListener("click", () => {
-    modal.classList.add('show');
-    clearInterval(timerId);
-});
+        openModal();
+    });
 });
 
+function showModalByScroll() {
+    if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+        openModal();
+        window.removeEventListener('scroll', showModalByScroll);
+    }
+}
+
+window.addEventListener('scroll', showModalByScroll);
+
+//Disable modal
+
+function closeModal() {
+    modal.classList.remove('show');
+    modal.classList.add('hide');
+    document.body.style.overflow = 'visible';
+}
 
 modal.addEventListener('click', e => {
     const target = e.target;
     if (target == modalClose) {
-        modal.classList.remove('show');
-        modal.classList.add('hide');
+        closeModal();
+    } else if (target == modal) {
+        closeModal();
+    }
+});
+
+document.addEventListener("keydown", e => {
+    if(e.code == "Escape" && modal.classList.contains('show')) {
+        closeModal();
     }
 });
 
@@ -122,7 +149,5 @@ const timer = document.querySelector(selector),
 
 setClock('.timer', deadline);
 
-
 });
-
 
