@@ -1,21 +1,21 @@
-  <h2 align="center">Доставка еды</h3>
+  <h2 align="center">Food delivery</h3>
 
   <p align="center">
-    Сайт доставки еды
+    Food delivery website
     <br />
 </p>
 
 <!-- ABOUT THE PROJECT -->
-## О проекте
+## About Project
 ![Alt text](/img/Food.png?raw=true "Food")
 <p>
-Сайт-одностраничник службы доставки еды. Написан на VanillaJS.
-Реализовано:
+A one-page food delivery website. Written in VanillaJS.
+Implemented:
 <ul>
-<li>Карточки создаются по шаблону из данных, получаемых с сервера</li>
-<li>Формы для связи. После заполнения контактной информации, данные отправляются на сервер в JSON-формате</li>
-<li>Слайдер</li>
-<li>Калькулятор калорий</li>
-<li>Таймер, отсчитывающий время до конца акции</li>
+<li>Cards are created according to the template, from the data received from the server</li>
+<li>Communication forms. After filling in the contact information, the data is sent to the server in JSON format</li>
+<li>Slider</li>
+<li>Calories calculator</li>
+<li>Promotion timer</li>
 </ul>
 </p>
