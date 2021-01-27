@@ -9,7 +9,7 @@
 ## About Project
 ![Alt text](/img/Food.png?raw=true "Food")
 <p>
-A one-page food delivery website. Written in VanillaJS.
+A one-page food delivery website.
 Implemented:
 <ul>
 <li>Cards are created according to the template, from the data received from the server</li>
